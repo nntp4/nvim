@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+set -e
+platform="unkown"
+osname=$(uname -s)
+pkgman_install="unkown"
+pkgs=()
+
+macos_pkgs=(
+  "curl"
+  "wget"
+  "neovim"
+  "git"
+  "gnupg"
+  "openssh"
+  "openssl"
+  "tldr"
+  "grpc"
+  "make"
+  "cmake"
+  "redis"
+  "etcd"
+  "nginx"
+  "mariadb"
+  "antlr"
+  "bison"
+  "re2c"
+  "llvm"
+  "node"
+  "go"
+  "python"
+  "ripgrep"
+  "fd"
+)
+
+if [[ "$osname" == "Linux" && "$(lsb_release -is)" == "Ubuntu" ]]; then
+  platform="Ubuntu"
+  pkgman="apt"
+elif [[ "$osname" == "Darwin" ]]; then
+  platform="macOS"
+  pkgman="brew"
+  pkgs+=${macos_pkgs[*]}
+  if [ -x "$(command -v brew)" ]; then
+    brew update
+  else
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  fi
+fi
+
+if [[ "$pkgman" == "unkown" ]]; then
+  echo "Unsupported platform: $platform" >&2
+  exit 1
+fi
+
+echo "Platform: $platform"
+echo "Package manager: $pkgman"
+echo "Packages: ${pkgs[*]}"
+
+$pkgman install ${pkgs[*]}
+
+# Rustup
+sh -c "$(curl --proto '=https' --tlsv3.2 -sSf https://sh.rustup.rs)"
+
+# xmake & vcpkg
+sh -c  "$(curl -fsSL https://xmake.io/shget.text)"
+git clone --depath=1 https://github.com/microsoft/vcpkg.git $HOME/.local/opt/vcpkg

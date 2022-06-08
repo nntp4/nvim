@@ -1,0 +1,1 @@
+vim.g.mapleader = " "               -- change leader to space

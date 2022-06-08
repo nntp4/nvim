@@ -1,0 +1,55 @@
+{
+  // formatting
+  "coc.preferences.formatOnSaveFiletypes": [
+    "c",
+    "cpp",
+    "cmake",
+    "lua",
+    "json",
+    "toml",
+    "yaml",
+    "markdown",
+    "typescript",
+    "javascript",
+    "python",
+    "rust",
+    "go",
+    "shell",
+    "html"
+  ],
+  // preferences
+  "coc.preferences.useQuickfixForLocations": true,
+  "coc.preferences.messageLevel": "error",
+  "coc.preferences.silentAutoupdate": true,
+  "coc.preferences.bracketEnterImprove": true,
+  "semanticTokens.filetypes": [
+    "c",
+    "cpp",
+    "css",
+    "dockerfile",
+    "go",
+    "html",
+    "javascript",
+    "json",
+    "lua",
+    "markdown",
+    "mysql",
+    "python",
+    "rust",
+    "sql",
+    "xml",
+    "yaml"
+  ],
+  // Rust
+  "rust-analyzer.enable": true,
+  "rust-analyzer.updates.channel": "nightly",
+  "rust-analyzer.cargo.autoreload": true,
+  "rust-analyzer.updates.checkOnStartup": true,
+  // Python
+  "python.formatting.provider": "yapf",
+  // Lua
+  "sumneko-lua.checkUpdate": true,
+  "sumneko-lua.enableNvimLuaDev": true,
+  "Lua.semantic.enable": true,
+  "Lua.telemetry.enable": true
+}
