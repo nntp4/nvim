@@ -1,0 +1,38 @@
+# SHELL$ curl -sLf https://spacevim.org/install.sh | bash -s -- --install neovim
+[options]
+colorscheme = "nord"
+colorscheme_bg = "dark"
+# Disable guicolors in basic mode, many terminal do not support 24bit
+# true colors
+enable_guicolors = true
+statusline_separator = "arrow"
+statusline_iseparator = "arrow"
+buffer_index_type = 4
+enable_tabline_filetype_icon = true
+enable_statusline_mode = false
+filemanager = "defx"
+filetree_direction = "left"
+autocomplete_method = "coc"
+snippet_engine = "ultisnips"
+
+# Enable autocomplete layer
+[[layers]]
+name = 'autocomplete'
+auto_completion_return_key_behavior = "complete"
+auto_completion_tab_key_behavior = "smart"
+
+[[layers]]
+name = 'shell'
+default_position = 'top'
+default_height = 30
+
+[[layers]]
+name = 'telescope'
+
+[[layers]]
+name = "treesitter"
+
+[[layers]]
+name = "tmux"
+[[layers]]
+name = "colorscheme"
